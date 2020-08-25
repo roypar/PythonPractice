@@ -1,8 +1,14 @@
-import lib
+class Person:
+    def __init__(self, name="John Doe", age=35, height=173):
+        self.name = name
+        self.age = age
+        self.height = height
 
-print("Hello World, Parijat")
-print("How do you feel?")
-print("Here I make a branch")
+    def __repr__(self):
+        return f"Name is {self.name}, age is {self.age}, height is {self.height}"
 
-print(lib.my_add(4, 6))
-print('All good')
+
+myself = Person("Parijat")
+myself.weight = 65
+print(myself)
+print(myself.weight)
