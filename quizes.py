@@ -9,8 +9,8 @@ class Point:
         return (self.x**2+self.y**2+self.z**2)
 
 
-p1 = Point(1,3,5)
-# print(p1.sqSum())
+# p1 = Point(1,3,5)
+# # print(p1.sqSum())
 
 #Exercise 2
 class Student:
@@ -29,8 +29,8 @@ class Student:
         return self.totalObtained()/self.totalMarks
 
 
-s1 = Student("Roy", 80, 90, 41)
-print("Total: {0}, Percent: {1:.1%}".format(s1.totalObtained(),s1.aggregatePercent()))
+# s1 = Student("Roy", 80, 90, 41)
+# print("Total: {0}, Percent: {1:.1%}".format(s1.totalObtained(),s1.aggregatePercent()))
 
 #Exercise 3
 class Calculator():
@@ -51,9 +51,41 @@ class Calculator():
         return self.num2/self.num1
 
 
-c1 = Calculator(10,94)
+# c1 = Calculator(10,94)
+#
+# print(c1.add())
+# print(c1.substract())
+# print(c1.multiply())
+# print(c1.divide())
 
-print(c1.add())
-print(c1.substract())
-print(c1.multiply())
-print(c1.divide())
+#Exercise 4
+class Account:
+    def __init__(self, title, balance):
+        self.title = title
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance = self.balance + amount
+
+    def getBalance(self):
+        return self.balance
+
+    def withdraw(self, amount):
+        self.balance = self.balance - amount
+
+
+class SavingsAccount(Account):
+    def __init__(self, title, balance, interestRate):
+        super().__init__(title, balance)
+        self.interestRate = interestRate
+
+    def interestAmount(self):
+        return self.balance * self.interestRate/100
+
+
+s1 = SavingsAccount("Mark", 1000, 5)
+print(s1.interestAmount())
+
+s1.deposit(200)
+s1.withdraw(300)
+print(s1.getBalance(), s1.interestAmount())
