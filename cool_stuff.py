@@ -22,5 +22,47 @@ def fibonacci_gen(limit = 100):
         count += 1
 
 
-for num in fibonacci_gen(10):
-    print(num)
+# for num in fibonacci_gen(10):
+#     print(num)
+
+
+# List of letters
+letters = ['a', 'b', 'd', 'e', 'i', 'j', 'o']
+
+
+# function that filters vowels
+def filterVowels(letter):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+
+    if letter in vowels:
+        return True
+    else:
+        return False
+
+
+# filteredVowels = list(filter(filterVowels, letters))
+# print(filteredVowels)
+
+# Library catalog
+classics = [
+    {"name": "The Avengers", "year": 1999},
+    {"name": "The Inglorious", "year": 2000},
+    {"name": "Fantastic Five", "year": 1995},
+    {"name": "Avenging Heros", "year": 2005},
+    {"name": "Unwanted Heroism", "year": 2000},
+]
+
+key_word = 'hero'
+input_with_key = [[entry, key_word] for entry in classics]
+
+
+def filterClassic(sample):
+    if sample[1].lower() in sample[0]['name'].lower():
+        return True
+    else:
+        return False
+
+
+filteredClassic = filter(filterClassic, input_with_key)
+names = [sample[0]['name'] for sample in filteredClassic]
+print(names)
