@@ -43,7 +43,7 @@ def filterVowels(letter):
 # filteredVowels = list(filter(filterVowels, letters))
 # print(filteredVowels)
 
-# Library catalog
+# Dictionary filtering
 classics = [
     {"name": "The Avengers", "year": 1999},
     {"name": "The Inglorious", "year": 2000},
@@ -63,6 +63,28 @@ def filterClassic(sample):
         return False
 
 
-filteredClassic = filter(filterClassic, input_with_key)
-names = [sample[0]['name'] for sample in filteredClassic]
-print(names)
+# filteredClassic = filter(filterClassic, input_with_key)
+# names = [sample[0]['name'] for sample in filteredClassic]
+# print(names)
+
+
+#Map function trials
+def my_func(x, y):
+    return x**2+y**2
+
+x_vals = [1,2,3,4,5]
+y_vals = [4,2,6,1,3]
+
+output = map(my_func, x_vals, y_vals)
+output_2 = map(lambda x,y: x**3+y**3, x_vals, y_vals)
+
+# print(list(output))
+# print(list(output_2))
+
+#Reduce function trials
+import functools
+
+annual_rets = [1,5.2,-1.3,4.8,10.2,-50,50,25.3]
+# annual_rets = [1,10,10]
+final_ret = functools.reduce(lambda x,y:x*(1+y/100),annual_rets)-1
+print(final_ret)
