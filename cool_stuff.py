@@ -1,4 +1,4 @@
-# Trying out generators
+"""Trying out generators"""
 def series_generator(low, high):
     while low < high:
         yield low
@@ -26,7 +26,7 @@ def fibonacci_gen(limit = 100):
 #     print(num)
 
 
-# List of letters
+"""Trying out filter functions"""
 letters = ['a', 'b', 'd', 'e', 'i', 'j', 'o']
 
 
@@ -43,7 +43,7 @@ def filterVowels(letter):
 # filteredVowels = list(filter(filterVowels, letters))
 # print(filteredVowels)
 
-# Dictionary filtering
+"""Trying out dictionary filtering"""
 classics = [
     {"name": "The Avengers", "year": 1999},
     {"name": "The Inglorious", "year": 2000},
@@ -52,8 +52,13 @@ classics = [
     {"name": "Unwanted Heroism", "year": 2000},
 ]
 
-key_word = 'hero'
-input_with_key = [[entry, key_word] for entry in classics]
+key_word = 'Aven'
+# input_with_key = [[entry, key_word] for entry in classics]
+
+
+def getEntryWithKey(data, key_word):
+    for entry in data:
+        yield [entry, key_word]
 
 
 def filterClassic(sample):
@@ -63,12 +68,12 @@ def filterClassic(sample):
         return False
 
 
-# filteredClassic = filter(filterClassic, input_with_key)
-# names = [sample[0]['name'] for sample in filteredClassic]
-# print(names)
+filteredClassic = filter(filterClassic, getEntryWithKey(classics, key_word))
+names = [sample[0]['name'] for sample in filteredClassic]
+print(names)
 
 
-#Map function trials
+"""Trying out map functions"""
 def my_func(x, y):
     return x**2+y**2
 
@@ -81,10 +86,10 @@ output_2 = map(lambda x,y: x**3+y**3, x_vals, y_vals)
 # print(list(output))
 # print(list(output_2))
 
-#Reduce function trials
+"""Trying out Reduce functions"""
 import functools
 
 annual_rets = [1,5.2,-1.3,4.8,10.2,-50,50,25.3]
 # annual_rets = [1,10,10]
-final_ret = functools.reduce(lambda x,y:x*(1+y/100),annual_rets)-1
-print(final_ret)
+# final_ret = functools.reduce(lambda x,y:x*(1+y/100),annual_rets)-1
+# print(final_ret)
